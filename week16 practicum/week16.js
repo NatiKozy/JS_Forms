@@ -214,207 +214,280 @@ function makeEleven() {
 
 document.querySelector('.b-11').onclick = makeEleven;
 
-// //Задание 12
-// //Выведите значения атрибутов id всех чекбоксов (количество: 3) из второй формы
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к чекбоксам с помощью form.elements и сохраните их в переменные
-// //- Получите значения атрибутов id всех чекбоксов второй формы
+//Задание 12
+//Выведите значения атрибутов id всех чекбоксов (количество: 3) из второй формы
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к чекбоксам с помощью form.elements и сохраните их в переменные
+//- Получите значения атрибутов id всех чекбоксов второй формы
 
-// const paragraphTwelve = document.getElementById('practicum12');
+const paragraphTwelve = document.getElementById('practicum12');
 
-// function makeTwelve() {
-// 	//Ваш код
+function makeTwelve() {
+	const formTwo = document.forms.formTwo;
+	const formTwoCheckboxOne = formTwo.elements.checkboxOne;
+	console.log(formTwoCheckboxOne);
+	const CheckboxOneId = formTwoCheckboxOne.id;
+	console.log(CheckboxOneId);
+	const formTwoCheckboxTwo = formTwo.elements.checkboxTwo;
+	console.log(formTwoCheckboxTwo);
+	const CheckboxTwoId = formTwoCheckboxTwo.id;
+	console.log(CheckboxTwoId);
+	const formTwoCheckboxThree = formTwo.elements.checkboxThree;
+	console.log(formTwoCheckboxThree);
+	const CheckboxThreeId = formTwoCheckboxThree.id;
+	console.log(CheckboxThreeId);
+	paragraphTwelve.innerText = CheckboxOneId + ", " + CheckboxTwoId + ", " + CheckboxThreeId;
+}
+
+document.querySelector('.b-12').onclick = makeTwelve;
+
+// Задание 13
+//Проверьте была ли выбрана кнопка четвёртой формы
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к radio кнопке с помощью form.elements и сохраните её в переменную
+//- Используйте условный оператор (if) для проверки выбранности кнопки
+//- Если кнопка выбрана, выведите сообщение "Кнопка выбрана" на страницу
+//- Если кнопка не выбрана, выведите сообщение "Кнопка не выбрана" на страницу
+
+const paragraphThirteen = document.getElementById('practicum13');
+
+function checkButton(e) {
+	e.preventDefault();
+	const lastForm = document.forms.lastForm;
+	const lastFormRadio = lastForm.elements.fourthName;
+	console.log(lastFormRadio);
+	if (lastFormRadio.checked) {
+		paragraphThirteen.textContent = "Кнопка выбрана";
+	} else {
+		paragraphThirteen.textContent = "Кнопка  не выбрана";
+	}
+}
+
+document.querySelector('.b-13').addEventListener('click', checkButton);
+
+//Задание 14
+//Проверьте какой вариант выбран в первой форме
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к элементу select с помощью form.elements и сохраните его в переменную
+//- Установите выбранным второй вариант: select.selectedIndex = 1;
+//- Используйте свойство value выбранной опции для получения выбранного варианта
+//- Используйте условный оператор (if) для проверки выбранного варианта
+//- Если выбран первый вариант, выведите сообщение "Выбран первый вариант" на страницу
+//- Если выбран второй вариант, выведите сообщение "Выбран второй вариант" на страницу
+//- Если выбран третий вариант, выведите сообщение "Выбран третий вариант" на страницу
+
+const paragraphFourteen = document.getElementById('practicum14');
+
+function checkOption() {
+	const formOne = document.forms.formOne;
+	const select = formOne.elements.firstSelect;
+	select.selectedIndex = 1;
+	const selectedOption = select.value;
+	if (selectedOption == 'Опция 1') {
+		paragraphFourteen.textContent = "Выбран первый вариант";
+	} else if (selectedOption == 'Опция 2') {
+		paragraphFourteen.textContent = "Выбран второй вариант";
+	} else if (selectedOption == 'Опция 3') {
+		paragraphFourteen.textContent = "Выбран третий вариант";
+}
+}
+
+document.querySelector('.b-14').onclick = checkOption;
+
+//Задание 15
+//Добавьте в первую форму выбранную Опцию 3 по умолчанию
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к элементу select с помощью form.elements и сохраните его в переменную
+//- Используйте свойство selectedIndex элемента select, чтобы установить выбранный индекс опции по умолчанию
+//- Установите значение selectedIndex равным индексу опции, которую вы хотите выбрать по умолчанию
+
+function makeFifteen() {
+	const formOne = document.forms.formOne;
+	const select = formOne.elements.firstSelect;
+	select.selectedIndex = 2;
+}
+
+makeFifteen();
+
+//Задание 16
+//Добавьте во вторую форму выбранный Вариант 3 по умолчанию
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к элементу checkbox с помощью form.elements и сохраните его в переменную
+//- Используйте свойство checked элемента checkbox, чтобы установить его выбранным по умолчанию
+//- Установите значение checked равным true для выбранного варианта
+
+function makeSixteen() {
+	const formTwo = document.forms.formTwo;
+	const checkbox = formTwo.elements.checkboxThree;
+	checkbox.checked = true;
+}
+
+makeSixteen();
+
+//Задание 17
+//Проверьте, заполнены ли все поля первой формы перед отправкой
+//Подсказка:
+//- Получите доступ к каждому полю формы с помощью form.elements и сохраните их в соответствующие переменные
+//- Используйте условные операторы (if) для проверки каждого поля на заполненность
+//- Если хотя бы одно поле не заполнено, выведите сообщение об ошибке на страницу (элемент для добавления ошибки создан: <p class="error-message" id="errorMessage"></p>)
+//- Добавьте слушатель события submit к форме, чтобы выполнить проверку перед отправкой
+//- В обработчике события вызовите метод event.preventDefault() для отмены отправки формы в случае ошибки
+
+const formOne = document.forms.formOne;
+const errors = document.getElementById('errorMessage');
+
+formOne.addEventListener('submit', function (event) {
+	event.preventDefault(); //Отмена отправки
+	const name = formOne.elements.firstName;
+	const email = formOne.elements.firstEmail;
+	if (name.value === "" || email.value === "" ) {
+		return (errors.textContent = 'Заполните все поля');
+	} else {
+		formOne.submit();
+	}
+});
+
+//Задание 18
+//Очистите все поля первой формы после отправки
+//Подсказка:
+//- Получите доступ к форме с помощью document.forms и сохраните её в переменную
+//- Используйте метод reset() формы, чтобы очистить все её поля после отправки
+//- Добавьте слушатель события addEventListener на первую форму, как вы делали в задании 17
+//- В обработчике события вызовите метод event.preventDefault() для отмены отправки формы в случае ошибки
+
+//const formOne = document.forms.formOne;//прописано в задании 17
+formOne.addEventListener('submit', function (event) {
+	event.preventDefault(); //Отмена отправки
+		formOne.reset();
+});
+
+//Задание 19
+//При выборе определенной опции из выпадающего списка измените цвет фона страницы
+//Подсказка:
+//- Получите доступ к элементу select с помощью document.getElementById или другим методом выборки элементов и сохраните его в переменную
+//- Используйте событие onchange для отслеживания изменений в выборе опции
+//- В обработчике события, используя условные операторы (if), проверьте выбранную опцию
+//- В зависимости от выбранной опции, измените цвет фона страницы, используя свойство document.body.style.backgroundColor
+
+const selectElement = document.getElementById('firstSelect');
+
+selectElement.onchange = function () {
+	if (selectElement.value == 'Опция 1') {
+		document.body.style.backgroundColor = 'green';
+	}
+	if (selectElement.value == 'Опция 2') {
+		document.body.style.backgroundColor = 'lightblue';
+	}
+	if (selectElement.value == 'Опция 3') {
+		document.body.style.backgroundColor = 'salmon';
+}
+};
+
+//Задание 20
+//Добавьте валидацию для поля Email
+//Подсказка:
+//- Получите доступ к первой форме с помощью document.forms и сохраните её в переменную
+//- Получите доступ к полю Email с помощью form.elements и сохраните его в переменную
+//- Используйте событие oninput для отслеживания изменений в поле Email
+//- В обработчике события, используя регулярное выражение (RegExp), проверьте введенное значение поля Email
+//- В зависимости от результата проверки, измените стиль поля Email (например, установите класс с ошибкой) и отобразите сообщение об ошибке в элементе <p> (добавьте элемент самостоятельно) с помощью свойства textContent.
+
+//const formOne = document.forms.formOne;//прописано в задании 17
+const emailInput = formOne.elements.firstEmail;
+const errorMessage = document.getElementById('errorMessage');
+
+emailInput.oninput = function () {
+	const mailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailInput.value.match(mailFormat)) {
+        return true;
+    } else {
+        errorMessage.textContent = "Ваш адрес электронной почты введён неверно!";
+		return false;
+    }
+};
+
+//Задание 21
+//При отправке второй формы выполняется проверка всех чекбоксов. Если ни один из чекбоксов не выбран, отмените отправку формы и выведите сообщение об ошибке в элементе с id "result21".
+
+document.querySelector('.b-21').onclick = function (event) {
+	const checkboxes = document.forms.formTwo.querySelectorAll('input[type="checkbox"]');
+	let isChecked = false;
+
+	checkboxes.forEach(function (checkbox) {
+		if (checkbox.checked) {
+			isChecked = true;
+		}
+	});
+
+	if (!isChecked) {
+		event.preventDefault();
+		document.getElementById('result21').textContent = 'Проверка не пройдена';
+	} else {
+		document.getElementById('result21').textContent = 'Проверка пройдена';
+	}
+};
+
+//Задание 22
+//При отправке третьей формы выполняется проверка поля Имя на заполненность. Если поле Имя пустое, отмените отправку формы и выведите сообщение об ошибке в элементе с id "result22".
+
+document.querySelector('.b-22').onclick = function (event) {
+	const nameInput = document.forms.formThree.elements.thirdName;
+
+	if (nameInput.value.trim() === '') {
+		event.preventDefault();
+		document.getElementById('result22').textContent = 'Проверка не пройдена';
+	} else {
+		document.getElementById('result22').textContent = 'Проверка пройдена';
+	}
+};
+
+//Задание 23
+//При выборе опции "Я хочу зарегистрироваться" в четвёртой форме кнопка должна быть разблокирована. В противном случае, сделайте кнопку отправки формы заблокированной.
+//Подсказка: используйте свойство disabled
+// const lastForm = document.forms.lastForm;
+// const reg = lastForm.elements.fourthName;
+// const btn = lastForm.elements.fourthButton;
+// console.log(reg);
+// if (reg.checked) {
+// 	btn.setAttribute('disabled');
+// } else {
+// 	btn.removeAttribute('disabled');
 // }
 
-// document.querySelector('.b-12').onclick = makeTwelve;
 
-// // Задание 13
-// //Проверьте была ли выбрана кнопка четвёртой формы
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к radio кнопке с помощью form.elements и сохраните её в переменную
-// //- Используйте условный оператор (if) для проверки выбранности кнопки
-// //- Если кнопка выбрана, выведите сообщение "Кнопка выбрана" на страницу
-// //- Если кнопка не выбрана, выведите сообщение "Кнопка не выбрана" на страницу
+//Задание 24
+//Найдите все поля ввода на странице и установите им атрибут "placeholder" со значением "Введите данные"
+//Подсказка: для установки атрибута используйте методы forEach и setAttribute
 
-// const paragraphThirteen = document.getElementById('practicum13');
-
-// function checkButton(e) {
-// 	//Ваш код
-// }
-
-// document.querySelector('.b-13').addEventListener('click', checkButton);
-
-// //Задание 14
-// //Проверьте какой вариант выбран в первой форме
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к элементу select с помощью form.elements и сохраните его в переменную
-// //- Установите выбранным второй вариант: select.selectedIndex = 1;
-// //- Используйте свойство value выбранной опции для получения выбранного варианта
-// //- Используйте условный оператор (if) для проверки выбранного варианта
-// //- Если выбран первый вариант, выведите сообщение "Выбран первый вариант" на страницу
-// //- Если выбран второй вариант, выведите сообщение "Выбран второй вариант" на страницу
-// //- Если выбран третий вариант, выведите сообщение "Выбран третий вариант" на страницу
-
-// const paragraphFourteen = document.getElementById('practicum14');
-
-// function checkOption() {
-// 	//Ваш код
-// }
-
-// document.querySelector('.b-14').onclick = checkOption;
-
-// //Задание 15
-// //Добавьте в первую форму выбранную Опцию 3 по умолчанию
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к элементу select с помощью form.elements и сохраните его в переменную
-// //- Используйте свойство selectedIndex элемента select, чтобы установить выбранный индекс опции по умолчанию
-// //- Установите значение selectedIndex равным индексу опции, которую вы хотите выбрать по умолчанию
-
-// function makeFifteen() {
-// 	//Ваш код
-// }
-
-// makeFifteen();
-
-// //Задание 16
-// //Добавьте во вторую форму выбранный Вариант 3 по умолчанию
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к элементу checkbox с помощью form.elements и сохраните его в переменную
-// //- Используйте свойство checked элемента checkbox, чтобы установить его выбранным по умолчанию
-// //- Установите значение checked равным true для выбранного варианта
-
-// function makeSixteen() {
-// 	//Ваш код
-// }
-
-// makeSixteen();
-
-// //Задание 17
-// //Проверьте, заполнены ли все поля первой формы перед отправкой
-// //Подсказка:
-// //- Получите доступ к каждому полю формы с помощью form.elements и сохраните их в соответствующие переменные
-// //- Используйте условные операторы (if) для проверки каждого поля на заполненность
-// //- Если хотя бы одно поле не заполнено, выведите сообщение об ошибке на страницу (элемент для добавления ошибки создан: <p class="error-message" id="errorMessage"></p>)
-// //- Добавьте слушатель события submit к форме, чтобы выполнить проверку перед отправкой
-// //- В обработчике события вызовите метод event.preventDefault() для отмены отправки формы в случае ошибки
-
-// const formOne = document.forms.formOne;
-
-// formOne.addEventListener('submit', function (event) {
-// 	event.preventDefault(); //Отмена отправки
-
-// 	//Ваш код
-// });
-
-// //Задание 18
-// //Очистите все поля первой формы после отправки
-// //Подсказка:
-// //- Получите доступ к форме с помощью document.forms и сохраните её в переменную
-// //- Используйте метод reset() формы, чтобы очистить все её поля после отправки
-// //- Добавьте слушатель события addEventListener на первую форму, как вы делали в задании 17
-// //- В обработчике события вызовите метод event.preventDefault() для отмены отправки формы в случае ошибки
-
-// formOne.addEventListener('submit', function (event) {
-// 	event.preventDefault(); //Отмена отправки
-// 	//Ваш код
-// });
-
-// //Задание 19
-// //При выборе определенной опции из выпадающего списка измените цвет фона страницы
-// //Подсказка:
-// //- Получите доступ к элементу select с помощью document.getElementById или другим методом выборки элементов и сохраните его в переменную
-// //- Используйте событие onchange для отслеживания изменений в выборе опции
-// //- В обработчике события, используя условные операторы (if), проверьте выбранную опцию
-// //- В зависимости от выбранной опции, измените цвет фона страницы, используя свойство document.body.style.backgroundColor
-
-// //const selectElement = //Ваш код
-
-// // selectElement.onchange = function () {
-// // 	//Ваш код
-// // };
-
-// //Задание 20
-// //Добавьте валидацию для поля Email
-// //Подсказка:
-// //- Получите доступ к первой форме с помощью document.forms и сохраните её в переменную
-// //- Получите доступ к полю Email с помощью form.elements и сохраните его в переменную
-// //- Используйте событие oninput для отслеживания изменений в поле Email
-// //- В обработчике события, используя регулярное выражение (RegExp), проверьте введенное значение поля Email
-// //- В зависимости от результата проверки, измените стиль поля Email (например, установите класс с ошибкой) и отобразите сообщение об ошибке в элементе <p> (добавьте элемент самостоятельно) с помощью свойства textContent.
-
-// //const emailInput = //Ваш код
-// const errorMessage = document.getElementById('errorMessage');
-
-// // emailInput.oninput = function () {
-// 	//Ваш код
-// // };
-
-// //Задание 21
-// //При отправке второй формы выполняется проверка всех чекбоксов. Если ни один из чекбоксов не выбран, отмените отправку формы и выведите сообщение об ошибке в элементе с id "result21".
-
-// document.querySelector('.b-21').onclick = function (event) {
-// 	const checkboxes = document.forms.formTwo.querySelectorAll('input[type="checkbox"]');
-// 	let isChecked = false;
-
-// 	checkboxes.forEach(function (checkbox) {
-// 		if (checkbox.checked) {
-// 			isChecked = true;
-// 		}
-// 	});
-
-// 	if (!isChecked) {
-// 		//Ваш код
-// 	} else {
-// 		document.getElementById('result21').textContent = 'Проверка пройдена';
-// 	}
-// };
-
-// //Задание 22
-// //При отправке третьей формы выполняется проверка поля Имя на заполненность. Если поле Имя пустое, отмените отправку формы и выведите сообщение об ошибке в элементе с id "result22".
-
-// document.querySelector('.b-22').onclick = function (event) {
-// 	const nameInput = document.forms.formThree.elements.thirdName;
-
-// 	if (nameInput.value.trim() === '') {
-// 		//Ваш код
-// 	} else {
-// 		document.getElementById('result22').textContent = 'Проверка пройдена';
-// 	}
-// };
-
-// //Задание 23
-// //При выборе опции "Я хочу зарегистрироваться" в четвёртой форме кнопка должна быть разблокирована. В противном случае, сделайте кнопку отправки формы заблокированной.
-// //Подсказка: используйте свойство disabled
-
-// //Задание 24
-// //Найдите все поля ввода на странице и установите им атрибут "placeholder" со значением "Введите данные"
-// //Подсказка: для установки атрибута используйте методы forEach и setAttribute
-
-// document.querySelector('.b-24').onclick = function () {
-// 	//Ваш код
-// };
+document.querySelector('.b-24').onclick = function () {
+	const inputs = document.querySelectorAll('input');
+	console.log(inputs);
+	inputs.forEach((input) => {
+		input.setAttribute('placeholder', "Введите данные");
+	})
+};
 
 // //Задание 25
 // //При фокусе на любом поле ввода измените его границу на цвет "#00ff00". При потере фокуса восстановите стандартную границу.
 
-// document.querySelector('.b-25').onclick = function () {
-// 	const inputs = document.querySelectorAll('input');
+document.querySelector('.b-25').onclick = function () {
+	const inputs = document.querySelectorAll('input');
 
-// 	inputs.forEach(function (input) {
-// 		input.addEventListener('focus', function () {
-// 			//Ваш код
-// 		});
+	inputs.forEach(function (input) {
+		input.addEventListener('focus', function () {
+			input.style.borderColor = "#00ff00";
+		});
 
-// 		input.addEventListener('blur', function () {
-// 			//Ваш код
-// 		});
-// 	});
-// };
+		input.addEventListener('blur', function () {
+			input.style.borderColor = "#lightblue";
+		});
+	});
+};
 
 // //Задание 26
 // //При нажатии на кнопку "Задание 26" отобразите в элементе с id "result26" значение placeholder из поля имя в третьей форме
