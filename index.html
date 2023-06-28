@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        input:required:valid {
+            border-color: green;
+        }
+
+        /* input:invalid {
+            border-color: red;
+        } */
+    </style>
+</head>
+<body>
+    <h1>Validation</h1>
+<form novalidate>
+    <div>
+        <input type="text" id="login" placeholder="login" required>*
+    </div>
+    <div>
+        <input type="email" id="email" placeholder="email" required>*
+    </div>
+    <div>
+        <input type="number" max=100 min=1 placeholder="number" required>*
+    </div>
+    <div>
+        <input type="tel" id="phone" placeholder="phone_number" pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/" required>*
+    </div>
+    <div>
+        <button type="button" onClick=checkAll()>OK</button>
+    </div>
+    <div id="errorsInfo"></div>
+</form>
+
+
+    <script src="./script.js">
+        </script>
+
+</body>
+</html>
