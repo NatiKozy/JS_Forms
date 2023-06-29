@@ -452,13 +452,13 @@ document.querySelector('.b-22').onclick = function (event) {
 // const lastForm = document.forms.lastForm;
 // const reg = lastForm.elements.fourthName;
 // const btn = lastForm.elements.fourthButton;
-// console.log(reg);
-// if (reg.checked) {
-// 	btn.setAttribute('disabled');
-// } else {
-// 	btn.removeAttribute('disabled');
-// }
 
+// if (reg.checked) {
+// btn.disabled = false;
+// } else {
+// btn.disabled = true;
+// }
+// console.log(btn);
 
 //Задание 24
 //Найдите все поля ввода на странице и установите им атрибут "placeholder" со значением "Введите данные"
@@ -489,66 +489,72 @@ document.querySelector('.b-25').onclick = function () {
 	});
 };
 
-// //Задание 26
-// //При нажатии на кнопку "Задание 26" отобразите в элементе с id "result26" значение placeholder из поля имя в третьей форме
+//Задание 26
+//При нажатии на кнопку "Задание 26" отобразите в элементе с id "result26" значение placeholder из поля имя в третьей форме
 
-// document.querySelector('.b-26').onclick = function (event) {
-// 	event.preventDefault();
-// 	//Ваш код
-// };
+document.querySelector('.b-26').onclick = function (event) {
+	event.preventDefault();
+	const formThree = document.forms.formThree;
+	const input = formThree.elements.thirdName;
+	document.getElementById('result26').textContent = input.placeholder;
+};
 
-// //Задание 27
-// //При изменении значения любого из полей второй формы отобразите сообщение с текстом "Изменение внесено" в элементе с id "result27"
+//Задание 27
+//При изменении значения любого из полей второй формы отобразите сообщение с текстом "Изменение внесено" в элементе с id "result27"
 
-// const formTwoInputs = document.querySelectorAll('.secondForm input');
+const formTwoInputs = document.querySelectorAll('.secondForm input');
 
-// formTwoInputs.forEach(function (input) {
-// 	input.addEventListener('input', function () {
-// 		//Ваш код
-// 	});
-// });
+formTwoInputs.forEach(function (input) {
+	input.addEventListener('input', function () {
+		if (input.value.trim() !== ''){
+		document.getElementById('result27').textContent = "Изменение внесено";
+	}
+	});
+});
 
-// //Задание 28
-// //При выборе любой из опций выпадающего списка в первой форме отобразите сообщение с текстом "Опция выбрана" в элементе с id "result28"
+//Задание 28
+//При выборе любой из опций выпадающего списка в первой форме отобразите сообщение с текстом "Опция выбрана" в элементе с id "result28"
 
-// const selectFormThree = document.getElementById('firstSelect');
+const selectFormThree = document.getElementById('firstSelect');
 
-// selectFormThree.addEventListener('change', function () {
-// 	//Ваш код
-// });
+selectFormThree.addEventListener('change', function () {
+	if (selectFormThree.value !== 0) {
+	document.getElementById('result28').textContent = "Опция выбрана";
+}
+});
 
-// //Задание 29
-// //При заполнении всех полей третьей формы выведите их значения в консоль. Используйте JavaScript без использования объекта FormData.
+//Задание 29
+//При заполнении всех полей третьей формы выведите их значения в консоль. Используйте JavaScript без использования объекта FormData.
 
-// const formThree = document.forms.formThree;
-// const nameInputThree = form.elements.thirdName;
-// const emailInputThree = form.elements.thirdEmail;
+const formThree = document.forms.formThree;
+const nameInputThree = formThree.elements.thirdName;
+const emailInputThree = formThree.elements.thirdEmail;
 
-// function handleSubmitTwentyNine(event) {
-// 	event.preventDefault();
+function handleSubmitTwentyNine(event) {
+	event.preventDefault();
 
-// 	if (nameInputThree.value && emailInputThree.value) {
-// 		//Ваш код
-// 	} else {
-// 		console.log('Пожалуйста, заполните все поля формы.');
-// 	}
-// }
+	if (nameInputThree.value && emailInputThree.value) {
+		console.log(nameInputThree.value + ", " + emailInputThree.value);
+	} else {
+		console.log('Пожалуйста, заполните все поля формы.');
+	}
+}
 
-// formThree.addEventListener('submit', handleSubmitTwentyNine);
+formThree.addEventListener('submit', handleSubmitTwentyNine);
 
-// //Задание 30
-// //При отправке второй формы выведите значения выбранных вариантов в консоль
+//Задание 30
+//При отправке второй формы выведите значения выбранных вариантов в консоль
 
-// const formTwo = document.forms.formTwo;
-// const resultElement = document.getElementById('result30');
+const formTwo = document.forms.formTwo;
+const resultElement = document.getElementById('result30');
 
-// formTwo.addEventListener('submit', handleSubmit);
+formTwo.addEventListener('submit', handleSubmit);
 
-// function handleSubmit(event) {
-// 	event.preventDefault();
+function handleSubmit(event) {
+	event.preventDefault();
 
-// 	const checkboxes = formTwo.querySelectorAll('input[type="checkbox"]:checked');
-// 	const selectedOptions = Array.from(checkboxes).map((checkbox) => checkbox.labels[0].textContent);
-
-// 	//Ваш код
-// }
+	const checkboxes = formTwo.querySelectorAll('input[type="checkbox"]:checked');
+	const selectedOptions = Array.from(checkboxes).map((checkbox) => checkbox.labels[0].textContent);
+	console.log(selectedOptions.join(', '));
+	resultElement.textContent = selectedOptions.join(', ');
+}
