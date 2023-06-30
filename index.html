@@ -16,24 +16,48 @@
 </head>
 <body>
     <h1>Validation</h1>
-<form novalidate>
+<!-- <form class='form' name="form" novalidate>
     <div>
-        <input type="text" id="login" placeholder="login" required>*
+        <input class='form__input' type="text" id="login" placeholder="login" required>*
     </div>
     <div>
-        <input type="email" id="email" placeholder="email" required>*
+        <input class='form__input'  type="email" id="email" placeholder="email" required>*
     </div>
     <div>
-        <input type="number" max=100 min=1 placeholder="number" required>*
+        <input class='form__input' type="number" max=100 min=1 placeholder="number" required>*
     </div>
     <div>
-        <input type="tel" id="phone" placeholder="phone_number" pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/" required>*
+        <input class='form__input' type="tel" id="phone" placeholder="phone_number" required>*
     </div>
     <div>
-        <button type="button" onClick=checkAll()>OK</button>
+        <button type="button" onclick=checkAll()>OK</button>
     </div>
     <div id="errorsInfo"></div>
-</form>
+
+    <select id="genres">
+        <option value="rock">Рок</option>
+        <option value="blues" selected>Блюз</option>
+      </select>
+</form> -->
+
+<form>
+    <label for="promocode">Промокод</label>
+    <input type="radio" name="radio" value="register">register
+    <input id="promocode" type="text" name="promocode" placeholder="WIN-1234" required>
+    <button name='btn' type="submit">Применить</button>
+  </form>
+  ...
+  <form id="subscriptionFormId">
+    <label for="email">Почта</label>
+    <input id="email" type="email" name="email" placeholder="email@example.com" required>
+    <button type="submit">Подписаться</button>
+  </form>
+  ...
+  <form id="loginFormId" name="loginFormName">
+    <label for="phone">Ваш номер</label>
+    <input id="phone" type="tel" name="phone" placeholder="776-2323" required>
+    <button type="submit">Отправить код подтверждения</button>
+  </form>
 
 
     <script src="./script.js">

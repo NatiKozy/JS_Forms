@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+@mixin input-style{
+    height: 25px;
+    border-radius: 5px;
+    border-color: rgb(209, 194, 233);
+    width: 200px;
+}
+
+$default-font: 'Belanosima', sans-serif;
+
+body{
+    max-width: 1600px;
+    width:100%;
+    background-image:url(/assets/images/background.jpeg) ;
+    font-family: $default-font;
+}
+
+.form{
+    margin-left:40%;
+}
+
+.form__title{
+    text-align: center;
+}
+
+div{
+    margin-bottom: 20px;
+}
+
+.input{
+    @include input-style;
+}
+
+.form__submit{
+    background-color: rgb(156, 205, 238);
+    @include input-style;
+}
+
+.form__submit:focus{
+    border-color: rgb(58, 14, 129);
+}
+
+.error{
+    border: 2px dotted red;
+}

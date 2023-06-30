@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+<link rel="stylesheet" type="text/css" href="./assets/styles/normalize.css">
+<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- pattern="/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i/" для емэйла из урока что не так -->
+    <h1 class="form__title">Registration form with validation check</h1>
+    <form class="form" name="form" novalidate>
+        <div id="name">
+            <label for="name" class="form__label">Name:</label>
+            <input type="text" name="name" placeholder="Enter your name" class="form__input input" minlength="2" maxlength="20" required>
+            <br>
+        </div>
+        <div id="email">
+        <label for="email" class="form__label">Email:</label>
+		<input type="email" name="email" placeholder="Enter your email" class="form__input input" required>
+		<br>
+    </div>
+    <div id="age">
+        <label for="age" class="form__label">Age:</label>
+        <input type="text" name="age" placeholder="Enter your age" class="form__input input" minlength="1" maxlength="2" required>
+        <br>
+    </div>
+    <div id="sex">
+        <label for="sex" class="form__label">Sex:</label>
+		<input type="radio" name="sex" value="male" class="form__input">
+		<span>Male</span>
+        <input type="radio" name="sex" value="female" class="form__input">
+        <span>Female</span>
+		<br>
+    </div>
+    <div id="select">
+        <label for="select" class="form__label">Choose profession:</label>
+		<select name="select" class="form__select" placeholder="Choose your profession" required>
+			<option value="Policeman">Policeman</option>
+			<option value="Teacher">Teacher</option>
+			<option value="Engineer">Engineer</option>
+            <option value="Frontend-developer">Frontend-developer</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Another">Another</option>
+		</select>
+		<br>
+    </div>
+    <div id="password">
+        <label for="password" class="form__label">Enter password:</label>
+        <input type="text" class="form__input input" name="password" placeholder="Enter password" minlength="8" required>
+        <br>
+    </div>
+    <div id="password-check">
+        <label for="password" class="form__label">Repeat password:</label>
+        <input type="text" class="form__input input" name="password" placeholder="Repeat password" minlength="8" required>
+        <br>
+    </div>
+    <div id="checkbox">
+        <input type="checkbox" name="checkbox" class="form__checkbox" required>
+		<label for="checkbox">I agree with the Privacy policy</label>
+        <br>
+    </div>
+    <div id="button">
+        <input name="button" type="submit" value="Submit" class="form__submit">
+    </div>
+    </form>
+
+    <script src="./assets/script/script.js"></script>
+</body>
+</html>
