@@ -449,16 +449,22 @@ document.querySelector('.b-22').onclick = function (event) {
 //Задание 23
 //При выборе опции "Я хочу зарегистрироваться" в четвёртой форме кнопка должна быть разблокирована. В противном случае, сделайте кнопку отправки формы заблокированной.
 //Подсказка: используйте свойство disabled
-// const lastForm = document.forms.lastForm;
-// const reg = lastForm.elements.fourthName;
-// const btn = lastForm.elements.fourthButton;
+const lastForm = document.forms.lastForm;
+const reg = lastForm.elements.fourthName;
+const btn = lastForm.elements.fourthButton;
 
-// if (reg.checked) {
-// btn.disabled = false;
-// } else {
-// btn.disabled = true;
-// }
-// console.log(btn);
+reg.addEventListener('click', () =>{
+	if (reg.checked) {
+		btn.disabled = false;
+		} else {
+		btn.disabled = true;
+		}
+})
+btn.addEventListener('click', () => {
+	console.log(reg.checked);
+	console.log(btn.disabled);
+})
+console.log(btn);
 
 //Задание 24
 //Найдите все поля ввода на странице и установите им атрибут "placeholder" со значением "Введите данные"
