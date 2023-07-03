@@ -11,11 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- pattern="/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i/" для емэйла из урока что не так -->
+    <main>
     <h1 class="form__title">Registration form with validation check</h1>
     <form class="form" name="form" novalidate>
         <div id="name">
-            <label for="name" class="form__label">Name:</label>
+            <label
+            for="name"
+            class="form__label">Name:
+            </label>
             <input type="text" name="name" placeholder="Enter your name" class="form__input input" minlength="2" maxlength="20" required>
             <br>
         </div>
@@ -51,12 +54,14 @@
     </div>
     <div id="password">
         <label for="password" class="form__label">Enter password:</label>
-        <input type="text" class="form__input input" name="password" placeholder="Enter password" minlength="8" required>
+        <input type="text" class="form__input input" name="password" placeholder="Enter password" minlength="8"
+        pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,20}$/" required>
         <br>
     </div>
     <div id="password-check">
         <label for="password" class="form__label">Repeat password:</label>
-        <input type="text" class="form__input input" name="password" placeholder="Repeat password" minlength="8" required>
+        <input type="text" class="form__input input" name="repeatpassword" placeholder="Repeat password" minlength="8"
+        pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,20}$/"required>
         <br>
     </div>
     <div id="checkbox">
@@ -64,11 +69,14 @@
 		<label for="checkbox">I agree with the Privacy policy</label>
         <br>
     </div>
+    <div id="errorsInfo">
+
+    </div>
     <div id="button">
         <input name="button" type="submit" value="Submit" class="form__submit">
     </div>
     </form>
-
+</main>
     <script src="./assets/script/script.js"></script>
 </body>
 </html>
